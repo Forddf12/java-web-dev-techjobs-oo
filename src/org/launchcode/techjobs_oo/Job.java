@@ -1,9 +1,8 @@
 package org.launchcode.techjobs_oo;
 
+import java.util.Objects;
+
 public class Job {
-    // TODO: Add two constructors - one to initialize a unique ID and a second to initialize the
-    // other five fields. The second constructor should also call the first in order to initialize
-    // the 'id' field.
 
     private int id;
     private static int nextId = 1;
@@ -14,13 +13,29 @@ public class Job {
     private PositionType positionType;
     private CoreCompetency coreCompetency;
 
+    //Initialize unique ID
+    public Job() {
+        id = nextId;
+        nextId++;
+    }
+    //Initialize the other 5 fields
+
+    public Job(String name, Employer employer, Location location, PositionType positionType, CoreCompetency coreCompetency) {
+        this();
+        this.name = name;
+        this.employer = employer;
+        this.location = location;
+        this.positionType = positionType;
+        this.coreCompetency = coreCompetency;
+    }
+
     // TODO: Add custom equals and hashCode methods. Consider two Job objects "equal" when their id fields
     //  match.
 
     @Override
     public boolean equals(Object o) {
-        if (this === o) return true;
-        if (o === null || getClass() != o.getClass()) return false;
+        if (this == o) return true;
+        if (o == null || getClass() != o.getClass()) return false;
         Job job = (Job) o;
         return id == job.id;
     }
@@ -89,12 +104,12 @@ public class Job {
             positionType.setValue("Data not available!");}
         if (coreCompetency.getValue() == " " | coreCompetency.getValue() == "") {
             coreCompetency.setValue("Data not available!");}
-        someJob = String.format("/nID: %d/n" +
-                "Name: %s/n" +
-                "Employer: %s/n" +
-                "Location: %s/n" +
-                "Position Type: %s/n" +
-                "Core Competency: %s/n", id, name, employer, location, positionType, coreCompetency + "/n");
+        someJob = String.format("/nID: id/n" +
+                "Name: name/n" +
+                "Employer: employer/n" +
+                "Location: location/n" +
+                "Position Type: positionType/n" +
+                "Core Competency: coreCompetency/n", id, name, employer, location, positionType, coreCompetency + "/n");
         return someJob;
     }
 }
