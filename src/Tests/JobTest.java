@@ -45,5 +45,11 @@ public class JobTest {
         assertFalse(test_job_all_fields.equals(test_job_all_fields2));
     }
 
+    @Test
+    public void testoStringContainsBlankLine() {
+        assertTrue(test_job_all_fields.toString().startsWith("/n",0));
+        assertTrue(test_job_all_fields.toString().endsWith("/n"));
+    }
+
 
 }
