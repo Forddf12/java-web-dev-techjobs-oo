@@ -108,13 +108,13 @@ public class Job {
         if (name == " " | name == "") {
             name = "Data not available!";
         }
-        if (employer.getValue() == " " | employer.getValue() == "") {
+        if (employer.getValue().equals(" ") | employer.getValue().equals("")) {
             employer.setValue("Data not available!"); }
-        if (location.getValue() == " " | location.getValue() == "") {
+        if (location.getValue().equals(" ") | location.getValue().equals("")) {
             location.setValue("Data not available!");}
-        if (positionType.getValue() == " " | positionType.getValue() == "") {
+        if (positionType.getValue().equals(" ") | positionType.getValue().equals("")) {
             positionType.setValue("Data not available!");}
-        if (coreCompetency.getValue() == " " | coreCompetency.getValue() == "") {
+        if (coreCompetency.getValue().equals(" ") | coreCompetency.getValue().equals("")) {
             coreCompetency.setValue("Data not available!");}
         //set up format for output
         someJob = String.format("\n" + "ID: " + this.getId() + "\n" +
