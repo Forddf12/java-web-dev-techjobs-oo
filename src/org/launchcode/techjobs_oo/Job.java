@@ -92,5 +92,37 @@ public class Job {
         this.coreCompetency = coreCompetency;
     }
 
+    @Override
+    public String toString() {
+        String someJob = "";
+        //Check to see if all fields are empty
+        if (name == " " | name == "" &&
+                employer.getValue().equals(" ") | employer.getValue().equals("") &&
+                location.getValue().equals(" ") | location.getValue().equals("") &&
+                positionType.getValue().equals(" ") | positionType.getValue().equals("") &&
+                coreCompetency.getValue().equals(" ") | coreCompetency.getValue().equals("")) {
+            return "\n" + "This job does not seem to exist!" + "\n";
+        }
 
+        //Check to see if any fields are empty
+        if (name == " " | name == "") {
+            name = "Data not available!";
+        }
+        if (employer.getValue() == " " | employer.getValue() == "") {
+            employer.setValue("Data not available!"); }
+        if (location.getValue() == " " | location.getValue() == "") {
+            location.setValue("Data not available!");}
+        if (positionType.getValue() == " " | positionType.getValue() == "") {
+            positionType.setValue("Data not available!");}
+        if (coreCompetency.getValue() == " " | coreCompetency.getValue() == "") {
+            coreCompetency.setValue("Data not available!");}
+        //set up format for output
+        someJob = String.format("\n" + "ID: " + this.getId() + "\n" +
+                "Name: " +this.getName() + "\n" +
+                "Employer: " + this.getEmployer() + "\n" +
+                "Location: " + this.getLocation() + "\n" +
+                "Position Type: " + this.getPositionType() + "\n" +
+                "Core Competency: " + this.getCoreCompetency() + "\n");
+        return someJob;
+    }
 }
